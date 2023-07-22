@@ -1,0 +1,83 @@
+1.8.2
+
+-FIX: Room automatically finish right after start when Photon OnPremise is used.
+-FIX: Player can slide walking backward or by side.
+-FIX: Time shows one minute more of the correct time.
+-FIX: Level Manager: level icon doesn't shows in the player scoreboard.
+-FIX: Error when trying to add a new friend and ULogin Pro is enabled.
+-FIX: Addon Manager window non-readable text in left panel when light Unity skin is used.
+-FIX: Player scoreboard team name text doesn't get update.
+-FIX: Can't use knife after fire 15 times.
+-FIX: Mobile Control: turn on the Auto Fire feature cause weapons to shoot non-stop with unlimited ammo.
+-FIX: Errors when enable Photon Voice addon.
+-FIX: Room Creator Menu doesn't apply the default values when an non-map scene is loaded from the lobby.
+-IMPROVE: Add Aim Position Preview button in bl_PlayerIK.cs inspector, with this you can preview how the TP arms will be positioned when the player is aiming.
+-FIX: Issue that cause the "Edit Hands Position" (for preview the IK of player arms) of bl_NetworkGun not work after a script compilation.
+-FIX: Elimination: in a bot/players match, when all the real players are in the same team the game can't start until manually team balance happens.
+-FIX: Player scoreboard doesn't update in One Team game modes and 'Direct Map Join' method is used.
+-FIX: An issue that provokes that sometimes can't see other player's created rooms in the server list.
+
+1.8
+
+-IMPROVE: Third person player movement animations blend.
+-FIX: Error with Player Selector after spawning with the player.
+-IMPROVE: Footstep system, now it supports terrain layers, now you can play different sounds depending on the terrain texture.
+-ADDON: New Third Person View addon: allows the switch between first-person and third-person view in-game with a button or set the third-person view as the unique game view, LINK: <link=https://lovattostudio.com/u/mfpstpaa>https://lovattostudio.com/u/mfpstpaa</link>
+-IMPROVE: Pick up window pop up.
+-IMPROVE: Now the local player rag-doll will appear in a pose based on the state of the player before he dies (idle, running, crouch, etc...)
+-FIX: Error when blocking the weapons and tried to switch weapons with the mouse scroll or quick-fire knife/nade.
+-IMPROVE: Now bots are supported in Elimination game mode.
+-IMPROVE: Now you can define on the inspector in which game modes bots are supported in GameData -> Game Modes -> *game mode* -> Support Bots, note that bots by default are only supported in FFA, TDM, and ELIM game modes.
+-FIX: Match time never update for non-master clients when auto team selection is On.
+-IMPROVE: Make player scoreboard managed from an independent script in order to make it easier to customize.
+-IMPROVE: Add option to always shows the weapon loadout or auto hide (default), this option can be found in UI->PlayerUI->PlayerInfo->Loadout->bl_WeaponLoadoutUI->Show Mode.
+-IMPROVE: Weapon pickup system.
+-IMPROVE: Reduce the message per player count in OnPhotonSerializeView by more than half.
+-IMPROVE: Add text notification in the waiting room to let players know when more players are required to start the game.
+-ADDON: Vehicle: Car: Multiplayer 4-wheels vehicle system, allowing enter/exit the vehicle as driver or passenger, LINK: <link=https://lovattostudio.com/u/mfpscar>https://lovattostudio.com/u/mfpscar</link>
+-FIX: Grenade mesh doesn't show again (in the FPArms) after throw one of them.
+-FIX: Fall damage calculation that causes player dies from falling short distances.
+-IMPROVE: Add weapon slot rules (GameData->Weapon Slot Ruler), which allows you to define what kind of weapons can be assigned in each of the player equipment slots.
+-IMPROVE: Add bl_PlayerReferences.cs, this script is attached in each player prefab and mapped all the player prefab attached scripts, use to get any player script instead of GetComponent, GetComponentInChildren, etc...
+-ADD: Custom IK Handler, allows you to define custom IK targets for the third person player arms with bl_PlayerIK.CustomArmsIKHandler.
+-FIX: Bots ignore the local player in FFA mode.
+-IMPROVE: Slightly improved the bots behave and made the bots behave-settings more modular and easier to modify.
+-ADDON: Paypal for Shop: Enables to use Paypal checkout (using the official Paypal checkout V2 API) to purchase in-game coins from the Shop addon, LINK: <link=https://lovattostudio.com/u/ppfsaa>https://lovattostudio.com/u/ppfsaa</link>
+-IMPROVE: Ammo and Health kit system.
+-ADD: Home window in the MainMenu scene, now it's the default window instead of the server list window.
+-IMPROVE: Item pickup ray detection, before, the player has to look directly at the object in order to be able to pick up it, now only need to look near it.
+-IMPROVE: The player controller now auto slides in surfaces with angle > to the Character Controller slope limit.
+-IMPROVE: ItemManager system.
+-FIX: Match time is out of sync for non-master clients when the countdown is turn off.
+-ADD: MFPS Editor Manager window, an Unity Editor window that allows you to have all the MFPS settings + the Addons settings in a single menu, open it with Ctrl + M on Windows or ⌘ + M on Mac
+-FIX: Photon view error on the start of the match caused by a duplicated bot photonview.
+-DOC: Guide to update older MFPS version with new updates, Documentation -> Update MFPS.
+-IMPROVE: Now bots are replaced when a new player enters in a match in FFA (before only works in TDM)
+-FIX: Bots stop working when an old master client re-join in the match.
+-IMPROVE: Now bots replace players when they left a game leaving an empty spot in the match.
+-ADDON: Authenticators: Facebook and Google: allows sign-in/sign-up in ULogin Pro with Facebook or Google accounts, LINKS: <link=https://lovattostudio.com/u/gglaa>https://lovattostudio.com/u/gglaa</link> and <link=https://lovattostudio.com/u/fblaa>https://lovattostudio.com/u/fblaa</link>
+-FIX: Player Selector: InMatch mode.
+-FIX: Burst weapons shoot the full round even if the clip doesn't have the required ammo.
+-FIX: Crosshair doesn't re-center when change screen resolution.
+-IMPROVE: Rewrite the in-game settings with a more robust, modular, and easy to use solution.
+-IMPROVE: The lobby room creator menu.
+-IMPROVE: Input Manager: now you can change the input device (keyboard-controller) in-game through the settings menu.
+-IMPROVE: FPWeapon side-walk movement effect.
+-FIX: Weird bots upper body rotation when the target is in the opposite direction from where the bot is heading to.
+-ADD: MouseLook Frame Smoothing, resulting in a more fluid and precise mouse movement (works for mobile pad too).
+-ADD: Room UI Mask, now you can show/hide certain groups of in-game UI with bl_UIReferences.Instance.SetUIMask(RoomUILayers.Loadout | RoomUILayers.WeaponData | RoomUILayers.Scoreboards | RoomUILayers.Time...);
+-IMPROVE: Integrate the Friend List with ULogin Pro, now will be verified if the given friend exists before add to the friend list.
+-DOC: Add Universal Render Pipeline (URP) tutorial in the documentation, which guides in how to convert MFPS to URP/HDRP.
+-IMPROVE: Now player won't be able to stand up (when is crouch) if there's an obstacle above him.
+-ADD: Infinite Ammo option for weapons, simply attach the script bl_MapMods in any scene object and turn on the Infinity Ammo toggle.
+-IMPROVE: Friend list UI in the Lobby scene.
+-FIX: Import GAIA and other assets that include the standard First-Person Controller scripts broke the MFPS player references(works in Unity 2019.4++)
+-IMPROVE: Player third person left arm IK movement.
+-ADD: Player class dropdown selector in Lobby and Room menus.
+-IMPROVE: Level Manager: Now the killer player level icon is shown in the kill cam UI.
+-IMPROVE: Player scoreboard management, reducing garbage collection caused by the update of the tables.
+-IMPROVE: Killfeed list is now pooled, reducing the garbage collection caused by the instantiation-destroy of this in each kill event.
+-FIX: Camera zoom jump when the player is running and switch weapon.
+-IMPROVE: TP weapon switch animation timing.
+-FIX: The weapon range was not working, now the Range set in the Weapon Info will be the max range of the bullets from that weapon.
+-Along with this MFPS update, all MFPS addons have been updated as well, the last version of each of them is required to check the changelog here: <link=https://lovattostudio.com/u/mfpsacl>https://lovattostudio.com/u/mfpsacl</link>
