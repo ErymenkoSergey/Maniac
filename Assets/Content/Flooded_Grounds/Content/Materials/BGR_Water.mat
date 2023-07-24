@@ -8,15 +8,21 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BGR_Water
-  m_Shader: {fileID: 4800000, guid: ff4f7c50660ba9b4495472673ef5af91, type: 3}
-  m_ValidKeywords: []
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _EMISSION
+  - _NORMALMAP
+  - _PARALLAXMAP
   m_InvalidKeywords: []
-  m_LightmapFlags: 5
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -32,8 +38,24 @@ Material:
         m_Texture: {fileID: 8900000, guid: 3b5eaa969aa89fb45b025e2ff7d7695a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DetailBump:
         m_Texture: {fileID: 2800000, guid: 1d12cc523f65e9f49aa29548fe4402cd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Fresnel:
@@ -43,6 +65,14 @@ Material:
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 08fee7c705165d84294fc4eb7c8a3a10, type: 3}
         m_Scale: {x: 25, y: 25}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 2800000, guid: 2c912b5ea76df334684f8f50f436bf17, type: 3}
@@ -92,15 +122,24 @@ Material:
     m_Floats:
     - _BumpIntensity: 1
     - _BumpLerp: 0.5
+    - _BumpScale: 1
+    - _Cutoff: 0.5
     - _DetailInt: 0.4
+    - _DetailNormalMapScale: 1
     - _DetailTile: 10
     - _DetailTiling: 10
+    - _DstBlend: 0
     - _Emis: 0.05
     - _Fresnel: 1
     - _FresnelScale: 0.75
     - _GerstnerIntensity: 1
+    - _GlossMapScale: 1
     - _Glossiness: 2.1641788
+    - _GlossyReflections: 1
     - _InvertValue: 0
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
     - _Opacity: 0.75
     - _Parallax: 0.0313
     - _Power: 0
@@ -116,14 +155,19 @@ Material:
     - _Shift: 0
     - _Shininess: 0.6012862
     - _Smoothness: 1
+    - _SmoothnessTextureChannel: 0
     - _Smth: 0.95
     - _SpecContrast: 2
     - _SpecIntensity: 2.3
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
     - _Transparency: 0.95
+    - _UVSec: 0
     - _WaveFreq: 20
     - _WaveHeight: 0.25
     - _WavePower: 1.4029856
     - _WaveScale: 0.058
+    - _ZWrite: 1
     - _fogEnd: 400
     - _fogStart: 20
     - _layer1Tile: 10
@@ -138,6 +182,7 @@ Material:
     - _ColorTint: {r: 0.74509805, g: 0.7023594, b: 0.5727028, a: 1}
     - _DistortParams: {r: 1, g: 1, b: 2, a: 1.15}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Foam: {r: 0.1, g: 0.375, b: 0, a: 0}
     - _GAmplitude: {r: 0.3, g: 0.35, b: 0.25, a: 0.25}
     - _GDirectionAB: {r: 0.3, g: 0.85, b: 0.85, a: 0.25}
