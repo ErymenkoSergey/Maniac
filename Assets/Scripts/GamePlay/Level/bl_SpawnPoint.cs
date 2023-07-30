@@ -51,7 +51,7 @@ public class bl_SpawnPoint : MonoBehaviour {
             _gizmo = new DomeGizmo(h);
         }
 
-        Color c = (m_Team == Team.Team2) ? bl_GameData.Instance.Team2Color : bl_GameData.Instance.Team1Color;
+        Color c = (m_Team == Team.Maniac) ? bl_GameData.Instance.Team2Color : bl_GameData.Instance.Team1Color;
         if (m_Team == Team.All) { c = Color.white; }
         Gizmos.color = c;
         _gizmo.Draw(transform, c, SpawnSpace);

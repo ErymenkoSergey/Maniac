@@ -140,6 +140,7 @@ MonoBehaviour:
       singlePass: 1
       occlusionMesh: 1
       cameraJitter: 0
+      allowMotionBlur: 1
     postProcessQualitySettings:
       NearBlurSampleCount: 030000000500000008000000
       NearBlurMaxRadius:
@@ -413,7 +414,8 @@ MonoBehaviour:
       enableBigTilePrepass: 0
       isFptlEnabled: 0
   m_ObsoleteDefaultVolumeProfile: {fileID: 0}
-  m_ObsoleteDefaultLookDevProfile: {fileID: 11400000, guid: 254c4fe87beb7be4fa72e1681edbed02, type: 2}
+  m_ObsoleteDefaultLookDevProfile: {fileID: 11400000, guid: 254c4fe87beb7be4fa72e1681edbed02,
+    type: 2}
   m_ObsoleteFrameSettingsMovedToDefaultSettings:
     bitDatas:
       data1: 140666621394781
@@ -459,7 +461,8 @@ MonoBehaviour:
     sssCustomSampleBudget: 20
     msaaMode: 0
     materialQuality: 0
-  m_ObsoleteRenderPipelineResources: {fileID: 11400000, guid: 3ce144cff5783da45aa5d4fdc2da14b7, type: 2}
+  m_ObsoleteRenderPipelineResources: {fileID: 11400000, guid: 3ce144cff5783da45aa5d4fdc2da14b7,
+    type: 2}
   m_ObsoleteRenderPipelineRayTracingResources: {fileID: 0}
   m_ObsoleteBeforeTransparentCustomPostProcesses: []
   m_ObsoleteBeforePostProcessCustomPostProcesses: []

@@ -23,10 +23,10 @@ namespace MFPS.GameModes.CaptureOfFlag
             if (bl_UIReferences.Instance.UIMask.IsEnumFlagPresent(RoomUILayers.TopScoreBoard))
                 Content.SetActive(true);
 
-            Team1ScoreText.color = Team.Team1.GetTeamColor();
-            Team2ScoreText.color = Team.Team2.GetTeamColor();
-            FlagImg1.color = Team.Team1.GetTeamColor();
-            FlagImg2.color = Team.Team2.GetTeamColor();
+            Team1ScoreText.color = Team.Hiding.GetTeamColor();
+            Team2ScoreText.color = Team.Maniac.GetTeamColor();
+            FlagImg1.color = Team.Hiding.GetTeamColor();
+            FlagImg2.color = Team.Maniac.GetTeamColor();
         }
 
         public void Hide()

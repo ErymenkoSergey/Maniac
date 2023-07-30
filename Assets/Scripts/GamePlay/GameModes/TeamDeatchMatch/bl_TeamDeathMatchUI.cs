@@ -21,8 +21,8 @@ namespace MFPS.GameModes.TeamDeathMatch
             if (bl_UIReferences.Instance.UIMask.IsEnumFlagPresent(RoomUILayers.TopScoreBoard))
                 Content.SetActive(true);
 
-            foreach (Graphic g in Team1UI) { g.color = Team.Team1.GetTeamColor(); }
-            foreach (Graphic g in Team2UI) { g.color = Team.Team2.GetTeamColor(); }
+            foreach (Graphic g in Team1UI) { g.color = Team.Hiding.GetTeamColor(); }
+            foreach (Graphic g in Team2UI) { g.color = Team.Maniac.GetTeamColor(); }
         }
 
         public void Hide()

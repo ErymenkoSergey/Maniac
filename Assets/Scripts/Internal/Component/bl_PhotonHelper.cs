@@ -165,10 +165,10 @@ public class bl_PhotonHelper : MonoBehaviourPun {
         
         switch (t)
         {
-            case "Team2":
-                return Team.Team2;
-            case "Team1":
-                return Team.Team1;
+            case "Maniac":
+                return Team.Maniac;
+            case "Hiding":
+                return Team.Hiding;
         }
         return Team.All;
     }

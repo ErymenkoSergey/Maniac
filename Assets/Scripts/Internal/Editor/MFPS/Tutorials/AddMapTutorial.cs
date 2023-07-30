@@ -324,7 +324,7 @@ public class AddMapTutorial : TutorialWizard
             parent = new GameObject("SpawnPoints");
             parent.transform.position = Vector3.zero;
         }
-        if (SpawnTeam == Team.Team1)
+        if (SpawnTeam == Team.Hiding)
         {
             GameObject t1p = GameObject.Find(string.Format("{0} Spawnpoints", bl_GameData.Instance.Team1Name));
             if (t1p == null)
@@ -342,7 +342,7 @@ public class AddMapTutorial : TutorialWizard
             var view = (SceneView)SceneView.sceneViews[0];
             spawn.transform.position = view.camera.transform.position + view.camera.transform.forward * 10;
         }
-        else if (SpawnTeam == Team.Team2)
+        else if (SpawnTeam == Team.Maniac)
         {
             GameObject t1p = GameObject.Find(string.Format("{0} Spawnpoints", bl_GameData.Instance.Team2Name));
             if (t1p == null)

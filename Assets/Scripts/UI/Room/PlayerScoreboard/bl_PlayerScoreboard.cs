@@ -90,7 +90,7 @@ public class bl_PlayerScoreboard : bl_MonoBehaviour
                     bl_PlayerScoreboardUI script = null;
                     if (!isOneTeamMode)
                     {
-                        if (p.GetPlayerTeam() == Team.Team1)
+                        if (p.GetPlayerTeam() == Team.Hiding)
                             script = TwoTeamScoreboards[0].Instance(p, playerscoreboardUIBinding);
                         else
                             script = TwoTeamScoreboards[1].Instance(p, playerscoreboardUIBinding);
@@ -155,7 +155,7 @@ public class bl_PlayerScoreboard : bl_MonoBehaviour
         bl_PlayerScoreboardUI script = null;
         if (!isOneTeamMode)
         {
-            if (info.Team == Team.Team1)
+            if (info.Team == Team.Hiding)
                 script = TwoTeamScoreboards[0].InstanceBot(info, playerscoreboardUIBinding);
             else
                 script = TwoTeamScoreboards[1].InstanceBot(info, playerscoreboardUIBinding);
@@ -208,11 +208,11 @@ public class bl_PlayerScoreboard : bl_MonoBehaviour
 
             for (int i = 0; i < all.Count; i++)
             {
-                if (all[i].GetTeam() == Team.Team1)
+                if (all[i].GetTeam() == Team.Hiding)
                 {
                     cachePlayerScoreboardSorted.Add(all[i]);
                 }
-                else if (all[i].GetTeam() == Team.Team2)
+                else if (all[i].GetTeam() == Team.Maniac)
                 {
                     cachePlayerScoreboardSorted2.Add(all[i]);
                 }

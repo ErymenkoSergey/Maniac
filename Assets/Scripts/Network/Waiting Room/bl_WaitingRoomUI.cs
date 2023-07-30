@@ -53,13 +53,13 @@ public class bl_WaitingRoomUI : bl_PhotonHelper
             }
         }
 
-        if (_players[index].GetPlayerTeam() == Team.Team1)
+        if (_players[index].GetPlayerTeam() == Team.Hiding)
         {
-            _players[index].SetPlayerTeam(Team.Team2);
+            _players[index].SetPlayerTeam(Team.Maniac);
         }
         else
         {
-            _players[index].SetPlayerTeam(Team.Team1);
+            _players[index].SetPlayerTeam(Team.Hiding);
         }
 
         InstancePlayerList();
@@ -106,11 +106,11 @@ public class bl_WaitingRoomUI : bl_PhotonHelper
             }
             else
             {
-                if (_players[i].GetPlayerTeam() == Team.Team1)
+                if (_players[i].GetPlayerTeam() == Team.Hiding)
                 {
                     SetPlayerToList(_players[i]);
                 }
-                else if (_players[i].GetPlayerTeam() == Team.Team2)
+                else if (_players[i].GetPlayerTeam() == Team.Maniac)
                 {
                     secondTeam.Add(_players[i]);
                 }

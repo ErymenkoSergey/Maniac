@@ -169,7 +169,7 @@ public class bl_GameManager : bl_PhotonHelper, IInRoomCallbacks, IConnectionCall
         GameObject playerPrefab = bl_GameData.Instance.Player1.gameObject;
         if (OverridePlayerPrefab == null)
         {
-            if (playerTeam == Team.Team2) playerPrefab = bl_GameData.Instance.Player2.gameObject;
+            if (playerTeam == Team.Maniac) playerPrefab = bl_GameData.Instance.Player2.gameObject;
         }
         else
         {
@@ -364,7 +364,7 @@ public class bl_GameManager : bl_PhotonHelper, IInRoomCallbacks, IConnectionCall
             {
                 if (PhotonNetwork.PlayerList.Length >= MinPlayers)
                 {
-                    if (PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Team1).Length > 0 && PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Team2).Length > 0)
+                    if (PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Hiding).Length > 0 && PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Maniac).Length > 0)
                     {
                         if(onAllPlayersRequiredIn != null) { onAllPlayersRequiredIn.Invoke(); }
                         return false;
@@ -576,15 +576,15 @@ public class bl_GameManager : bl_PhotonHelper, IInRoomCallbacks, IConnectionCall
             }
             else
             {
-                int team1Count = PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Team1).Length;
-                int team2Count = PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Team2).Length;
+                int team1Count = PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Hiding).Length;
+                int team2Count = PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Maniac).Length;
                 int totalPlayers = PhotonNetwork.PlayerList.Length;
 
                 if (bl_AIMananger.Instance.BotsActive)
                 {
                     totalPlayers += bl_AIMananger.Instance.BotsStatistics.Count;
-                    team1Count += bl_AIMananger.Instance.GetAllBotsInTeam(Team.Team1).Count;
-                    team2Count += bl_AIMananger.Instance.GetAllBotsInTeam(Team.Team2).Count;
+                    team1Count += bl_AIMananger.Instance.GetAllBotsInTeam(Team.Hiding).Count;
+                    team2Count += bl_AIMananger.Instance.GetAllBotsInTeam(Team.Maniac).Count;
                 }
 
                 //if the minimum amount of players are in the game

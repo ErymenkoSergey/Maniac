@@ -117,22 +117,22 @@ public class bl_RoomSettings : bl_MonoBehaviour
          joinText = isOneTeamMode ? bl_Localization.Instance.GetText(17) : bl_Localization.Instance.GetText(23);
 #endif
 
-        int teamDelta = PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Team1).Length;
-        int teamRecon = PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Team2).Length;
+        int teamDelta = PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Hiding).Length;
+        int teamRecon = PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Maniac).Length;
         Team team = Team.All;
         if (!isOneTeamMode)
         {
             if (teamDelta > teamRecon)
             {
-                team = Team.Team2;
+                team = Team.Maniac;
             }
             else if (teamDelta < teamRecon)
             {
-                team = Team.Team1;
+                team = Team.Hiding;
             }
             else if (teamDelta == teamRecon)
             {
-                team = Team.Team1;
+                team = Team.Hiding;
             }
 
             string jt = string.Format("{0} {1}", joinText, team.GetTeamName());

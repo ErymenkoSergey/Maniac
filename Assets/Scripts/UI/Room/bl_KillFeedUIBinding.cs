@@ -127,7 +127,7 @@ namespace MFPS.Runtime.UI.Bindings
         {
             if (isOneTeamMode || team == Team.None) { return team; }
 
-            return (team == Team.Team1) ? Team.Team2 : Team.Team1;
+            return (team == Team.Hiding) ? Team.Maniac : Team.Hiding;
         }
 
         bool isLocalPlayerName(string playerName) { return playerName == bl_PhotonNetwork.LocalPlayer.NickName; }

@@ -56,11 +56,11 @@ public class bl_WaitingRoom : bl_PhotonHelper, IMatchmakingCallbacks, IInRoomCal
         }
         else
         {
-            int team1Count = PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Team1).Length;
-            int team2Count = PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Team2).Length;
-            if(team1Count > team2Count) { JoinToTeam(Team.Team2); }
-            else if(team1Count < team2Count) { JoinToTeam(Team.Team1); }
-            else { JoinToTeam(Team.Team1); }
+            int team1Count = PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Hiding).Length;
+            int team2Count = PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Maniac).Length;
+            if(team1Count > team2Count) { JoinToTeam(Team.Maniac); }
+            else if(team1Count < team2Count) { JoinToTeam(Team.Hiding); }
+            else { JoinToTeam(Team.Hiding); }
         }
     }
 

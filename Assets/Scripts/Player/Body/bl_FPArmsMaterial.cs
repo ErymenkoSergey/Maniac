@@ -13,7 +13,7 @@ public class bl_FPArmsMaterial : ScriptableObject
         for (int i = 0; i < ArmsMaterials.Length; i++)
         {
             if (ArmsMaterials[i].Material == null) continue;
-            ArmsMaterials[i].Material.mainTexture = playerTeam == Team.Team1 ? ArmsMaterials[i].Team1Texture : ArmsMaterials[i].Team2Texture;
+            ArmsMaterials[i].Material.mainTexture = playerTeam == Team.Hiding ? ArmsMaterials[i].Team1Texture : ArmsMaterials[i].Team2Texture;
         }
     }
 

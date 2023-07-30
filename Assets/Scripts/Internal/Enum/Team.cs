@@ -1,7 +1,7 @@
 ﻿public enum Team
 {
     None = 0,
-    Team1 = 1,
-    Team2 = 2,
+    Hiding = 1,
+    Maniac = 2,
     All = 3,
 }

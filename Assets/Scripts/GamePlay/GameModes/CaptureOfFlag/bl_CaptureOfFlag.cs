@@ -27,7 +27,7 @@ public class bl_CaptureOfFlag : bl_PhotonHelper, IGameMode
 
     public bl_FlagPoint GetFlag(Team team)
     {
-        if (team == Team.Team1)
+        if (team == Team.Hiding)
         {
             return Team1Flag;
         }
@@ -37,32 +37,32 @@ public class bl_CaptureOfFlag : bl_PhotonHelper, IGameMode
 
     public Team GetWinnerTeam()
     {
-        int team1 = PhotonNetwork.CurrentRoom.GetRoomScore(Team.Team1);
-        int team2 = PhotonNetwork.CurrentRoom.GetRoomScore(Team.Team2);
+        int team1 = PhotonNetwork.CurrentRoom.GetRoomScore(Team.Hiding);
+        int team2 = PhotonNetwork.CurrentRoom.GetRoomScore(Team.Maniac);
 
         Team winner = Team.None;
-        if (team1 > team2) { winner = Team.Team1; }
-        else if (team1 < team2) { winner = Team.Team2; }
+        if (team1 > team2) { winner = Team.Hiding; }
+        else if (team1 < team2) { winner = Team.Maniac; }
         else { winner = Team.None; }
         return winner;
     }
 
     public static Team GetOppositeTeam(Team team)
     {
-        if (team == Team.Team1)
+        if (team == Team.Hiding)
         {
-            return Team.Team2;
+            return Team.Maniac;
         }
 
-        return Team.Team1;
+        return Team.Hiding;
     }
 
     void CheckScores()
     {
         if (!bl_RoomSettings.Instance.RoomInfoFetched) return;
 
-        int team1 = PhotonNetwork.CurrentRoom.GetRoomScore(Team.Team1);
-        int team2 = PhotonNetwork.CurrentRoom.GetRoomScore(Team.Team2);
+        int team1 = PhotonNetwork.CurrentRoom.GetRoomScore(Team.Hiding);
+        int team2 = PhotonNetwork.CurrentRoom.GetRoomScore(Team.Maniac);
 
         if(team1 >= CapturesToWin || team2 >= CapturesToWin)
         {
@@ -132,8 +132,8 @@ public class bl_CaptureOfFlag : bl_PhotonHelper, IGameMode
     {
         if (propertiesThatChanged.ContainsKey(PropertiesKeys.Team1Score) || propertiesThatChanged.ContainsKey(PropertiesKeys.Team2Score))
         {
-            int team1 = PhotonNetwork.CurrentRoom.GetRoomScore(Team.Team1);
-            int team2 = PhotonNetwork.CurrentRoom.GetRoomScore(Team.Team2);
+            int team1 = PhotonNetwork.CurrentRoom.GetRoomScore(Team.Hiding);
+            int team2 = PhotonNetwork.CurrentRoom.GetRoomScore(Team.Maniac);
             bl_CaptureOfFlagUI.Instance.SetScores(team1, team2);
             CheckScores();
         }

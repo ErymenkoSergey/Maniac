@@ -104,13 +104,13 @@ static class bl_Extensions
     public static int GetRoomScore(this Room room, Team team)
     {
         object teamId;
-        if (team == Team.Team1)
+        if (team == Team.Hiding)
         {
             if (room.CustomProperties.TryGetValue(PropertiesKeys.Team1Score, out teamId))
             {
                 return (int)teamId;
             }
-        } else if (team == Team.Team2)
+        } else if (team == Team.Maniac)
         {
             if (room.CustomProperties.TryGetValue(PropertiesKeys.Team2Score, out teamId))
             {
@@ -132,7 +132,7 @@ static class bl_Extensions
         int score = 0;
         score = r.GetRoomScore(t);
         score += scoreToAdd;
-        string key = (t == Team.Team1) ? PropertiesKeys.Team1Score : PropertiesKeys.Team2Score;
+        string key = (t == Team.Hiding) ? PropertiesKeys.Team1Score : PropertiesKeys.Team2Score;
         Hashtable h = new Hashtable();
         h.Add(key, score);
         r.SetCustomProperties(h);
@@ -151,10 +151,10 @@ static class bl_Extensions
         {
             switch ((string)teamId)
             {
-                case "Team2":
-                    return Team.Team2;
-                case "Team1":
-                    return Team.Team1;
+                case "Maniac":
+                    return Team.Maniac;
+                case "Hiding":
+                    return Team.Hiding;
                 case "All":
                     return Team.All;
                 case "None":
@@ -183,9 +183,9 @@ static class bl_Extensions
     {
         switch (t)
         {
-            case Team.Team1:
+            case Team.Hiding:
                 return bl_GameData.Instance.Team1Name;
-            case Team.Team2:
+            case Team.Maniac:
                 return bl_GameData.Instance.Team2Name;
             default:
                 return "Solo";
@@ -201,10 +201,10 @@ static class bl_Extensions
         Color c = Color.white;//default color
         switch (t)
         {
-            case Team.Team1:
+            case Team.Hiding:
                c = bl_GameData.Instance.Team1Color;
                 break;
-            case Team.Team2:
+            case Team.Maniac:
                c = bl_GameData.Instance.Team2Color;
                 break;
             case Team.All:
@@ -337,8 +337,8 @@ static class bl_Extensions
     /// <returns></returns>
     public static Team OppsositeTeam(this Team team)
     {
-        if (team == Team.Team1) { return Team.Team2; }
-        else if (team == Team.Team2) { return Team.Team1; }
+        if (team == Team.Hiding) { return Team.Maniac; }
+        else if (team == Team.Maniac) { return Team.Hiding; }
         else
         {
             return Team.All;

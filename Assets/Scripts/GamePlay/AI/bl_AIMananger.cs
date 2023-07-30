@@ -80,15 +80,15 @@ public class bl_AIMananger : bl_PhotonHelper
                 }
                 else
                 {
-                    int half = EmptySlotsCount(Team.Team1);
+                    int half = EmptySlotsCount(Team.Hiding);
                     for (int i = 0; i < half; i++)
                     {
-                        SpawnBot(null, Team.Team1);
+                        SpawnBot(null, Team.Hiding);
                     }
-                    half = EmptySlotsCount(Team.Team2);
+                    half = EmptySlotsCount(Team.Maniac);
                     for (int i = 0; i < half; i++)
                     {
-                        SpawnBot(null, Team.Team2);
+                        SpawnBot(null, Team.Maniac);
                     }
                 }
             }
@@ -173,11 +173,11 @@ public class bl_AIMananger : bl_PhotonHelper
     {
         Team1PlayersSlots.Clear();
         Team2PlayersSlots.Clear();
-        var team1Players = PhotonNetwork.PlayerList.GetPlayersInTeam(isOneTeamMode ? Team.All : Team.Team1).ToList();
+        var team1Players = PhotonNetwork.PlayerList.GetPlayersInTeam(isOneTeamMode ? Team.All : Team.Hiding).ToList();
 
         if (!isOneTeamMode)
         {
-            var team2Players = PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Team2).ToList();
+            var team2Players = PhotonNetwork.PlayerList.GetPlayersInTeam(Team.Maniac).ToList();
 
             int ptp = NumberOfBots / 2;
             for (int i = 0; i < ptp; i++)
@@ -242,7 +242,7 @@ public class bl_AIMananger : bl_PhotonHelper
         string AiName = bl_GameData.Instance.BotTeam1.name;
         if (agent != null)//if is a already instanced bot
         {
-            AiName = (agent.AITeam == Team.Team2) ? bl_GameData.Instance.BotTeam2.name : bl_GameData.Instance.BotTeam1.name;
+            AiName = (agent.AITeam == Team.Maniac) ? bl_GameData.Instance.BotTeam2.name : bl_GameData.Instance.BotTeam1.name;
             if (agent.AITeam == Team.None) { Debug.LogError($"bot {agent.AIName} has not team"); }
 
             //Check if the bot has been assigned to a team, or if not, check if there's a space for him
@@ -264,7 +264,7 @@ public class bl_AIMananger : bl_PhotonHelper
         }
         else
         {
-            AiName = (_team == Team.Team2) ? bl_GameData.Instance.BotTeam2.name : bl_GameData.Instance.BotTeam1.name;
+            AiName = (_team == Team.Maniac) ? bl_GameData.Instance.BotTeam2.name : bl_GameData.Instance.BotTeam1.name;
             if (!isOneTeamMode)//if team mode, spawn bots in the respective team spawn points.
             {
                 spawnPoint = bl_SpawnPointManager.Instance.GetSpawnPointForTeam(_team, bl_SpawnPointManager.SpawnMode.Sequential);
@@ -327,7 +327,7 @@ public class bl_AIMananger : bl_PhotonHelper
     /// <returns></returns>
     private bool VerifyTeamAffiliation(bl_AIShooter agent, Team team)
     {
-        var playerSlots = team == Team.Team2 ? Team2PlayersSlots : Team1PlayersSlots;
+        var playerSlots = team == Team.Maniac ? Team2PlayersSlots : Team1PlayersSlots;
         //check if the bot is assigned in the team
         if (playerSlots.Exists(x => x.Bot == agent.AIName)) return true;
         else
@@ -501,7 +501,7 @@ public class bl_AIMananger : bl_PhotonHelper
 
         string remplaceBot = string.Empty;
         string teamName = (string)changedProps[PropertiesKeys.TeamKey];
-        var slotList = teamName == Team.Team2.ToString() ? Team2PlayersSlots : Team1PlayersSlots;
+        var slotList = teamName == Team.Maniac.ToString() ? Team2PlayersSlots : Team1PlayersSlots;
 
         //check if this player was already assigned (maybe just change of team)
         if (slotList.Exists(x => x.Player == player.NickName)) return;
@@ -518,7 +518,7 @@ public class bl_AIMananger : bl_PhotonHelper
             //sync the slot change with other players
             if (PhotonNetwork.IsMasterClient)
             {
-                int teamCmdID = teamName == Team.Team2.ToString() ? 2 : 1;
+                int teamCmdID = teamName == Team.Maniac.ToString() ? 2 : 1;
                 photonView.RPC(nameof(SyncBotStat), RpcTarget.Others, $"{teamCmdID}|{player.NickName}", index, (byte)4);
             }
           //  Debug.Log($"Bot {remplaceBot} was replaced by {player.NickName}");
@@ -580,7 +580,7 @@ public class bl_AIMananger : bl_PhotonHelper
 
         //Check if the player was occupying a slot
         Team team = player.GetPlayerTeam();
-        var slotList = team == Team.Team2 ? Team2PlayersSlots : Team1PlayersSlots;
+        var slotList = team == Team.Maniac ? Team2PlayersSlots : Team1PlayersSlots;
         int index = slotList.FindIndex(x => x.Player == player.NickName);
         //empty the occupied slot
         if (index != -1) { slotList[index].Player = ""; }
@@ -637,7 +637,7 @@ public class bl_AIMananger : bl_PhotonHelper
         {
             string[] dataSplit = data.Split('|');
             Team team = (Team)int.Parse(dataSplit[0]);
-            var list = team == Team.Team2 ? Team2PlayersSlots : Team1PlayersSlots;
+            var list = team == Team.Maniac ? Team2PlayersSlots : Team1PlayersSlots;
             if (list.Count <= 0) { Debug.LogWarning("Team slots has not been setup yet."); return; }
             list[value].Player = "";
             list[value].Bot = dataSplit[1];
@@ -812,7 +812,7 @@ public class bl_AIMananger : bl_PhotonHelper
     public int EmptySlotsCount(Team team)
     {
         int count = 0;
-        var list = team == Team.Team2 ? Team2PlayersSlots : Team1PlayersSlots;
+        var list = team == Team.Maniac ? Team2PlayersSlots : Team1PlayersSlots;
         for (int i = 0; i < list.Count; i++)
         {
             if (string.IsNullOrEmpty(list[i].Player)) count++;
@@ -825,7 +825,7 @@ public class bl_AIMananger : bl_PhotonHelper
     /// </summary>
     private bool hasSpaceInTeam(Team team)
     {
-        if (team == Team.Team2)
+        if (team == Team.Maniac)
         {
             return Team2PlayersSlots.Exists(x => x.Player == string.Empty);
         }
@@ -840,7 +840,7 @@ public class bl_AIMananger : bl_PhotonHelper
     /// </summary>
     private bool hasSpaceInTeamForBot(Team team)
     {
-        if (team == Team.Team2)
+        if (team == Team.Maniac)
         {
             return Team2PlayersSlots.Exists(x => x.Player == string.Empty && x.Bot == string.Empty);
         }
