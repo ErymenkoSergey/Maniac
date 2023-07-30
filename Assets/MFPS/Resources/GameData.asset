@@ -173,8 +173,8 @@ MonoBehaviour:
   defaultSettings: {fileID: 11400000, guid: 5fadfa78dabe7f6429f21e8ed3cc747b, type: 2}
   AllScenes:
   - ShowName: Forest Maniac
-    m_Scene: {fileID: 102900000, guid: 94afde917c857e84c99bd7f7955e8022, type: 3}
-    RealSceneName: Map_000
+    m_Scene: {fileID: 102900000, guid: 7ecc9be4c3d1a634fbf7cc176e48aa15, type: 3}
+    RealSceneName: Map_001
     Preview: {fileID: 21300000, guid: ca37e507e47f9f148b92dd984e3137f3, type: 3}
   gameModes:
   - ModeName: Maniac
