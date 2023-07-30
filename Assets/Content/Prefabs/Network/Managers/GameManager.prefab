@@ -38,7 +38,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 400004}
   - {fileID: 1553457640}
@@ -60,12 +59,12 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
+  observableSearch: 0
   Synchronization: 0
   OwnershipTransfer: 0
-  observableSearch: 0
   ObservedComponents:
   - {fileID: 0}
-  sceneViewId: 0
+  viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &11400012
@@ -123,6 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0563ccd18aaf16c4cb556a9ec5dbca87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreboardKey: 9
+  PauseMenuKey: 27
   DelayLeave: 1
 --- !u!114 &11400002
 MonoBehaviour:
@@ -137,13 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_timeState: 0
-  roundStyle: 0
-  RoundDuration: 0
-  CurrentTime: 0
-  isFinish: 0
-  TimeText: {fileID: 0}
-  Initialized: 0
-  Pause: 0
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,7 +355,6 @@ GameObject:
   - component: {fileID: 114253029899137222}
   - component: {fileID: 627125936}
   - component: {fileID: 8678360468685694017}
-  - component: {fileID: 2448449403187578504}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -379,7 +372,6 @@ Transform:
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 66.8, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 400002}
   m_RootOrder: 0
@@ -396,10 +388,9 @@ Camera:
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
   m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
+  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -527,39 +518,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
---- !u!114 &2448449403187578504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 2048
-  m_VolumeTrigger: {fileID: 400004}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
-  m_Antialiasing: 1
-  m_AntialiasingQuality: 2
-  m_StopNaN: 1
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
 --- !u!1001 &2558611075432804590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -571,11 +529,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Post Process Volume
-      objectReference: {fileID: 0}
-    - target: {fileID: 2558611076566126854, guid: c87a298b565a5e643b62f7c489765f54,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2558611076566126854, guid: c87a298b565a5e643b62f7c489765f54,
         type: 3}
@@ -594,11 +547,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2558611076566126854, guid: c87a298b565a5e643b62f7c489765f54,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2558611076566126854, guid: c87a298b565a5e643b62f7c489765f54,
-        type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -611,6 +559,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558611076566126854, guid: c87a298b565a5e643b62f7c489765f54,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558611076566126854, guid: c87a298b565a5e643b62f7c489765f54,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2558611076566126854, guid: c87a298b565a5e643b62f7c489765f54,
         type: 3}

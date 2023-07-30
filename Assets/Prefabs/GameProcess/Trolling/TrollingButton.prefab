@@ -325,7 +325,6 @@ MonoBehaviour:
   m_itemName: 
   _placeInteraction: {fileID: 0}
   _pointSpawn: {fileID: 0}
-  _indexTeleport: 0
 --- !u!114 &798745226456052918
 MonoBehaviour:
   m_ObjectHideFlags: 0
