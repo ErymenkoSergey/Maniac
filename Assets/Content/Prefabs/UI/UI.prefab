@@ -5104,7 +5104,7 @@ MonoBehaviour:
   HealthText: {fileID: 114614425288262426}
   TimeText: {fileID: 114390885068350612}
   DamageAlpha: {fileID: 225286845466982606}
-  LoadoutUI: {fileID: 0}
+  LoadoutUI: {fileID: 114898432356870366}
   AmmoTextColorGradient:
     serializedVersion: 2
     key0: {r: 0.7352941, g: 0, b: 0, a: 1}
@@ -41893,7 +41893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7761540078458755438
 RectTransform:
   m_ObjectHideFlags: 0

@@ -32,13 +32,13 @@ public class bl_SpawnPoint : MonoBehaviour {
     DomeGizmo _gizmo = null;
     void OnDrawGizmosSelected()
     {
-        Draw();
+        //Draw();
     }
 
     private void OnDrawGizmos()
     {
         if (bl_SpawnPointManager.Instance == null || !bl_SpawnPointManager.Instance.drawSpawnPoints) return;
-        Draw();
+        //Draw();
     }
 
     void Draw()
