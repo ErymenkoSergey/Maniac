@@ -329,13 +329,13 @@ public class bl_LobbyUI : MonoBehaviour
     /// </summary>
     public void FullSetUp()
     {
-        List<Dropdown.OptionData> od = new List<Dropdown.OptionData>();
-        for (int i = 0; i < QualitySettings.names.Length; i++)
-        {
-            Dropdown.OptionData data = new Dropdown.OptionData();
-            data.text = QualitySettings.names[i].ToUpper();
-            od.Add(data);
-        }
+        //List<Dropdown.OptionData> od = new List<Dropdown.OptionData>();
+        //for (int i = 0; i < QualitySettings.names.Length; i++)
+        //{
+        //    Dropdown.OptionData data = new Dropdown.OptionData();
+        //    data.text = QualitySettings.names[i].ToUpper();
+        //    od.Add(data);
+        //}
 
 #if LM
         LevelIcon.gameObject.SetActive(true);

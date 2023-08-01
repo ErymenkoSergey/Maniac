@@ -53,10 +53,10 @@ namespace MFPS.Runtime.Settings
         /// </summary>
         public void ApplySettings(bool applyResolution, bool fireCallback = true)
         {
-            QualitySettings.SetQualityLevel((int)GetSettingOf("Quality"), true);
-            QualitySettings.anisotropicFiltering = (AnisotropicFiltering)(int)GetSettingOf("Anisotropic");
+            //QualitySettings.SetQualityLevel((int)GetSettingOf("Quality"), true);
+            //QualitySettings.anisotropicFiltering = (AnisotropicFiltering)(int)GetSettingOf("Anisotropic");
             int antiA = (int)GetSettingOf("Antialiasing");
-            QualitySettings.antiAliasing = antiA;
+            //QualitySettings.antiAliasing = antiA;
             AudioListener.pause = !(bool)GetSettingOf("Audio");
             AudioListener.volume = (float)GetSettingOf("Volume");
 
