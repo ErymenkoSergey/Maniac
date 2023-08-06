@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b33f0ff16976a942b2873cb5a7b974f, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
+  singleMode: 1
   offlineMode: 0
   UseLobbyChat: 1
   UseVoiceChat: 1
-  BulletTracer: 1
+  BulletTracer: 0
   DropGunOnDeath: 1
   SelfGrenadeDamage: 1
   CanFireWhileRunning: 1
@@ -45,10 +46,14 @@ MonoBehaviour:
     ScorePerKill: 100
     ScorePerHeadShot: 25
     ScoreForWinMatch: 500
+    CoeficientWin: 7
     ScorePerTimePlayed: 3
+    MaxTimeOutLobby: 60
   VirtualCoins:
     InitialCoins: 1000
     CoinScoreValue: 100
+    UserCoins: 0
+    _totalCoins: 0
   AllWeapons:
   - Name: Rifle
     Type: 1
